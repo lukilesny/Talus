@@ -20,7 +20,3 @@ def questionBox():
         root.destroy()
         return False
 
-#przyklad uzycia    
-time.sleep(3)
-print(questionBox())
-time.sleep(5)
