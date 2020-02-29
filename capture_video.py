@@ -6,11 +6,11 @@ from random import randint
 from threading import Timer
 from paddles import binarize_paddles
 from camera_configured import camera_configured
-
+from training_begin import training_begin
 
 def capture_video():
     cap = cv2.VideoCapture(0)
-    [x_min, y_min, x_max, y_max] = camera_configured(cap)
+    tab = camera_configured(cap)
     # score = training_begin(cap)
     #print(x_min, y_min, x_max, y_max)340 240
     ret, rawframe = cap.read()
@@ -19,5 +19,6 @@ def capture_video():
 
     cv2.imshow("frame", rawframe)
     cv2.waitKey(0)
+    score = training_begin(cap,tab)
     cap.release()
     cv2.destroyAllWindows()
