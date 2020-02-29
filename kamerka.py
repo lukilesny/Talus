@@ -41,6 +41,8 @@ def hello():
             y = randint(y_offset, height - y_offset)
             print("wchodzę",x,y)
         frame = show_point(frame,x,y)
+        cv2.namedWindow("frame", cv2.WND_PROP_FULLSCREEN)
+        cv2.setWindowProperty("frame",cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
         cv2.imshow("frame",detect_paddles(frame))
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
