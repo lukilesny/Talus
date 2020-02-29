@@ -4,6 +4,7 @@ from matplotlib import pyplot as plt
 from random import seed
 from random import randint
 from threading import Timer
+from paddles import detect_paddles
 
 def show_point(img,x,y):
     img = cv2.line(img, (x - 5, y - 5), (x - 5, y + 5), (255, 0, 0), 2)
@@ -38,7 +39,7 @@ def hello():
             y = randint(y_offset, height - y_offset)
             print("wchodzę",x,y)
         frame = show_point(frame,x,y)
-        cv2.imshow("frame",frame)
+        cv2.imshow("frame",detect_paddles(frame))
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
         cnt += 1
