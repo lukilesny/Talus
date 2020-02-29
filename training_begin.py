@@ -1,9 +1,6 @@
-from random import seed
-from random import randint
 import cv2
-import queue
 from paddles import detect_paddles
-
+from define_traces import define_trace
 def training_begin (cap, borders):
     ret, frame = cap.read()
     frame = cv2.flip(frame, 1)  # odbicie lustrzane
@@ -15,24 +12,11 @@ def training_begin (cap, borders):
         bin = detect_paddles(frame)
         if point_reched(point,frame):
             point = points.get()
-        bin = cv2.circle(bin, (point[0], point[1]), 2, (255, 0, 0), 2)
-        cv2.imshow("img",bin)
+        frame = cv2.circle(frame, (point[0], point[1]), 2, (255, 0, 0), 50)
+        cv2.imshow("img",frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     return 1
-def define_trace(borders):
-    x_min = borders[0]
-    y_min = borders[1]
-    x_max = borders[2]
-    y_max = borders[3]
-    points = []
-    seed(2)
-    points = queue.Queue()
-    for i in range(0,50):
-        x = randint(x_min,x_max)
-        y = randint(y_min,y_max)
-        points.put([x, y])
-    return points
 
 def point_reched(point,frame):
     bin = detect_paddles(frame)
