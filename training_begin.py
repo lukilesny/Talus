@@ -17,9 +17,11 @@ def training_begin (cap, borders):
         if point_reched(point1,frame) and point_reched(point2,frame):
             point1 = points.get()
             point2 = points.get()
-        frame = cv2.circle(frame, (point1[0], point1[1]), 2, (255, 0, 0), 10)
-        frame = cv2.circle(frame, (point2[0], point2[1]), 2, (255, 0, 0), 10)
-        cv2.imshow("img",frame)
+        frame = cv2.circle(frame, (point1[0], point1[1]), 2, (0, 255, 255), 10)
+        frame = cv2.circle(frame, (point2[0], point2[1]), 2, (0, 255, 255), 10)
+        cv2.namedWindow("window", cv2.WND_PROP_FULLSCREEN)
+        cv2.setWindowProperty("window", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+        cv2.imshow("window",frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     return randint(0,1000)
