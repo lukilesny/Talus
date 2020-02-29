@@ -12,21 +12,21 @@ def define_trace(borders): #borders to rogi x/y min/max
     p=[None]*15
     
 #zbior punktow
-    p[0] = [0, 0]
-    p[1] = [x1+0.4*b, y1+0*a]
-    p[2] = [x1+0.6*b, y1+0*a]
-    p[3] = [x1+0*b, y1+0.5*a]
-    p[4] = [x1+1*b, y1+0.5*a]
-    p[5] = [x1+0.4*b, y1+1*a]
-    p[6] = [x1+0.6*b, y1+1*a]
-    p[7] = [x1+0.1*b, y1+0.2*a]
-    p[8] = [x1+0.2*b, y1+0.1*a]
-    p[9] = [x1+0.8*b, y1+0.1*a]
-    p[10] = [x1+0.9*b, y1+0.2*a]
-    p[11] = [x1+0.2*b, y1+0.8*a]
-    p[12] = [x1+0.8*b, y1+0.8*a]
-    p[13] = [x1+0.4*b, y1+0.6*a]
-    p[14] = [x1+0.6*b, y1+0.6*a]
+    p[0] = [round(0), round(0)]
+    p[1] = [round(x1+0.4*b), round(y1+0*a)]
+    p[2] = [round(x1+0.6*b), round(y1+0*a)]
+    p[3] = [round(x1+0*b), round(y1+0.5*a)]
+    p[4] = [round(x1+1*b), round(y1+0.5*a)]
+    p[5] = [round(x1+0.4*b), round(y1+1*a)]
+    p[6] = [round(x1+0.6*b), round(y1+1*a)]
+    p[7] = [round(x1+0.1*b), round(y1+0.2*a)]
+    p[8] = [round(x1+0.2*b), round(y1+0.1*a)]
+    p[9] = [round(x1+0.8*b), round(y1+0.1*a)]
+    p[10] = [round(x1+0.9*b), round(y1+0.2*a)]
+    p[11] = [round(x1+0.2*b), round(y1+0.8*a)]
+    p[12] = [round(x1+0.8*b), round(y1+0.8*a)]
+    p[13] = [round(x1+0.4*b), round(y1+0.6*a)]
+    p[14] = [round(round(x1+0.6*b)), round(y1+0.6*a)]
     
 #I
     points.put(p[3])
