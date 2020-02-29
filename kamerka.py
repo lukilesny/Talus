@@ -17,7 +17,8 @@ def hello():
     cap = cv2.VideoCapture(0)
     seed(2)
     cnt=0
-    ret, frame = cap.read()
+    ret, rawframe = cap.read()
+    frame = cv2.flip(rawframe,1) #odbicie lustrzane
     x_offset = 5
     y_offset = 65
     cv2.imshow("frame",frame)
@@ -27,7 +28,8 @@ def hello():
     y = randint(y_offset, height - y_offset)
     while(True):
         #cv2.waitKey(1000)
-        ret, frame = cap.read()
+        ret, rawframe = cap.read()
+        frame = cv2.flip(rawframe,1) #odbicie lustrzane
         pixel = frame[x, y, :]
         # Get R, G, B values (This are int from 0 to 255)
         red = pixel[2]
