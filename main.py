@@ -4,7 +4,7 @@ from capture_video import capture_video
 def main():
     starttime = time.time()
     while(True):
-        time.sleep(5.0 - ((time.time() - starttime) % 5.0))
+        time.sleep(1.0 - ((time.time() - starttime) % 1.0))
         capture_video()
 
 if __name__ == "__main__":
