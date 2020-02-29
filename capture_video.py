@@ -4,13 +4,20 @@ from matplotlib import pyplot as plt
 from random import seed
 from random import randint
 from threading import Timer
-from paddles import detect_paddles
+from paddles import binarize_paddles
+from camera_configured import camera_configured
+
 
 def capture_video():
-    camera_configured = False
     cap = cv2.VideoCapture(0)
-    ret, frame = cap.read()
-    camera_configured(cap)
-    score = training_begin(cap)
+    [x_min, y_min, x_max, y_max] = camera_configured(cap)
+    # score = training_begin(cap)
+    #print(x_min, y_min, x_max, y_max)340 240
+    ret, rawframe = cap.read()
+    cv2.rectangle(rawframe, (150, 100), (500, 400), (255, 0, 0), 2)
+    #cv2.circle(rawframe, (human_core_x, human_core_y), 20, (0, 0, 255), 2)
+
+    cv2.imshow("frame", rawframe)
+    cv2.waitKey(0)
     cap.release()
     cv2.destroyAllWindows()

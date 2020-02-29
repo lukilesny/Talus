@@ -13,7 +13,7 @@ def detectPaddlesUp(frame):
     table = frame[0:height_max,width_min:width_max]
     sum = int(np.sum(table)/255)
 
-    if(sum>area/6):
+    if(sum>area/10):
         return 1
     else:
         return 0

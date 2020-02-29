@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 from random import seed
 from random import randint
 from threading import Timer
-from paddles import detect_paddles
+from paddles import binarize_paddles
 
 def show_point(img,x,y):
     img = cv2.line(img, (x - 5, y - 5), (x - 5, y + 5), (255, 0, 0), 2)
@@ -43,7 +43,7 @@ def hello():
         frame = show_point(frame,x,y)
         cv2.namedWindow("frame", cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty("frame",cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
-        cv2.imshow("frame",detect_paddles(frame))
+        cv2.imshow("frame", binarize_paddles(frame))
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
         cnt += 1
