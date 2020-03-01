@@ -9,10 +9,12 @@ from camera_configured import camera_configured
 from training_begin import training_begin
 import socket
 from send_request import send_request
+from questionbox import scoreBox
 def capture_video():
     cap = cv2.VideoCapture(0)
     tab = camera_configured(cap)
     score = training_begin(cap,tab)
+    scoreBox(score)
     send_request(socket.gethostname(), score)
     cap.release()
     cv2.destroyAllWindows()
