@@ -48,12 +48,6 @@ def define_trace(borders): #borders to rogi x/y min/max
     points.put(p[8])
     points.put(p[12])
 
-    points.put(p[9])
-    points.put(p[11])
-
-    points.put(p[8])
-    points.put(p[12])
-
 #III
     points.put(p[1])
     points.put(p[2])
@@ -81,12 +75,6 @@ def define_trace(borders): #borders to rogi x/y min/max
     points.put(p[5])
 
 #V
-    points.put(p[2])
-    points.put(p[10])
-
-    points.put(p[7])
-    points.put(p[1])
-
     points.put(p[9])
     points.put(p[4])
 

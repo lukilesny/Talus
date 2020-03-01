@@ -41,7 +41,7 @@ def camera_configured(cap):
         cv2.namedWindow("window", cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty("window", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
         cv2.imshow("window", rawframe)
-        cv2.imshow("binary", bin)
+        # cv2.imshow("binary", bin)
         if cv2.waitKey(1) & 0xFF == ord('e'):
             return [100,100,400,400]
         if cv2.waitKey(1) & 0xFF == ord('q'):

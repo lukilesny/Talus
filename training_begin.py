@@ -12,15 +12,18 @@ def training_begin (cap, borders):
     points = define_trace(borders)
     point1 = points.get()
     point2 = points.get()
+    points.put([10000,10000])
+    points.put([10000,10000])
     while (not points.empty()):
         ret, frame = cap.read()
         frame = cv2.flip(frame, 1)  # odbicie lustrzane
         bin = binarize_paddles(frame)
-        if point_reched(point1,frame) and point_reched(point2,frame):
+        if point_reched(point1,frame) and point_reched(point2,frame) and not points.empty():
             point1 = points.get()
             point2 = points.get()
-        frame = cv2.circle(frame, (point1[0], point1[1]), 2, (0, 255, 255), 10)
-        frame = cv2.circle(frame, (point2[0], point2[1]), 2, (0, 255, 255), 10)
+        if point1[0] < 2000:
+            frame = cv2.circle(frame, (point1[0], point1[1]), 2, (0, 255, 255), 20)
+            frame = cv2.circle(frame, (point2[0], point2[1]), 2, (0, 255, 255), 20)
 
         cv2.namedWindow("window", cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty("window", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
@@ -42,7 +45,7 @@ def point_reched(point,frame):
                 reached = True
     return reached
 def count_score(start_time, end_time):
-    score = 500 - (end_time - start_time)
+    score = 100 - (end_time - start_time)
     if score < 0:
         score = randint(0, 100)
     print(int(score))
