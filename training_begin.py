@@ -3,8 +3,10 @@ from paddles import binarize_paddles
 from define_traces import define_trace
 from random import seed
 from random import randint
+import time
 def training_begin (cap, borders):
     seed(5)
+    start_time = time.time()
     ret, frame = cap.read()
     frame = cv2.flip(frame, 1)  # odbicie lustrzane
     points = define_trace(borders)
@@ -24,9 +26,13 @@ def training_begin (cap, borders):
         cv2.namedWindow("window", cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty("window", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
         cv2.imshow("window",frame)
+        if cv2.waitKey(1) & 0xFF == ord('e'):
+            end_time = time.time()
+            return count_score(start_time, end_time)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-    return randint(0,1000)
+    end_time = time.time()
+    return count_score(start_time, end_time)
 
 def point_reched(point,frame):
     bin = binarize_paddles(frame)
@@ -36,3 +42,9 @@ def point_reched(point,frame):
             if bin[point[1]+x,point[0]+y] == 255:
                 reached = True
     return reached
+def count_score(start_time, end_time):
+    score = 500 - (end_time - start_time)
+    if score < 0:
+        score = randint(0, 100)
+    print(int(score))
+    return int(score)
