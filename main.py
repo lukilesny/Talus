@@ -11,7 +11,7 @@ def main():
         if questionBox():
             capture_video()
         else:
-            send_request(socket.gethostname(), 0)
+            send_request(socket.gethostname(), 50)
 if __name__ == "__main__":
     main()
 
