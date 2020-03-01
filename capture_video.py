@@ -18,7 +18,6 @@ def capture_video():
     #cv2.circle(rawframe, (human_core_x, human_core_y), 20, (0, 0, 255), 2)
 
     cv2.imshow("frame", rawframe)
-    cv2.waitKey(0)
     score = training_begin(cap,tab)
     cap.release()
     cv2.destroyAllWindows()
