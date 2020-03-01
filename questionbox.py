@@ -20,3 +20,13 @@ def questionBox():
         root.destroy()
         return False
 
+
+def scoreBox(score):
+    root = tk.Tk()
+    root.withdraw()
+    text = "Twoj wynik: "+ str(score)
+    tk.messagebox.showinfo('Gratulacje',text)
+    root.destroy()
+
+
+
