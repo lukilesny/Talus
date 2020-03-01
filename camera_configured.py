@@ -10,6 +10,7 @@ def camera_configured(cap):
     debug = False
     while (not training_should_start):
         ret, rawframe = cap.read()
+        rawframe = cv2.flip(rawframe, 1)  # odbicie lustrzane
         bin = binarize_paddles(rawframe)
         paddles_up = detectPaddlesUp(bin)
         if paddles_up:
