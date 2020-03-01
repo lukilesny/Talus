@@ -19,6 +19,8 @@ def training_begin (cap, borders):
             point2 = points.get()
         frame = cv2.circle(frame, (point1[0], point1[1]), 2, (0, 255, 255), 10)
         frame = cv2.circle(frame, (point2[0], point2[1]), 2, (0, 255, 255), 10)
+
+        frame=cv2.putText(frame, "Swietnie ci idzie", (40,50), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, lineType=cv2.LINE_AA)
         cv2.namedWindow("window", cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty("window", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
         cv2.imshow("window",frame)

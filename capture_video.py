@@ -13,11 +13,9 @@ def capture_video():
     cap = cv2.VideoCapture(0)
     tab = camera_configured(cap)
     #print(tab)
-    ret, rawframe = cap.read()
     #cv2.rectangle(rawframe, (150, 100), (500, 400), (255, 0, 0), 2)
     #cv2.circle(rawframe, (human_core_x, human_core_y), 20, (0, 0, 255), 2)
 
-    cv2.imshow("frame", rawframe)
     score = training_begin(cap,tab)
     send_request(socket.gethostname(), score)
     cap.release()
